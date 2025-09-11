@@ -257,7 +257,7 @@ function VideoPlayerTarget() {
   const [playerPosition, setPlayerPosition] = useState('center'); // 'center' or 'left'
 
   // Black placeholder video (1x1 pixel black MP4 data URI)
-  const blackVideoDataUri = "data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAF5tZGF0AAAA";
+  const blackVideoDataUri = "https://fxyqvekxgrilminh.public.blob.vercel-storage.com/videos/Yash%20landing%20page.mp4";
   
   const videos = [
     { src: blackVideoDataUri, lang: 'Spanish', color: 'bg-blue-500' },
@@ -814,8 +814,8 @@ function GlobeWithVideos() {
   const blackVideoDataUri = "data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAF5tZGF0AAAA";
   
   const videos = [
-    blackVideoDataUri,
-    blackVideoDataUri
+    "https://fxyqvekxgrilminh.public.blob.vercel-storage.com/videos/4612176-uhd_4096_2160_25fps%281%29.mp4",
+    "https://fxyqvekxgrilminh.public.blob.vercel-storage.com/videos/14351118_3840_2160_60fps.mp4"
   ];
 
   useEffect(() => {
@@ -1120,6 +1120,7 @@ export default function Home() {
     setStatus('loading');
 
     try {
+      console.log('Submitting email:', email);
       const response = await fetch('/api/waitlist', {
         method: 'POST',
         headers: {
@@ -1128,7 +1129,13 @@ export default function Home() {
         body: JSON.stringify({ email: email.trim() }),
       });
 
-      const result = await response.json();
+      const contentType = response.headers.get('content-type') || '';
+      const isJson = contentType.includes('application/json');
+      const result = isJson ? await response.json() : null;
+      if (!isJson) {
+        const text = await response.text().catch(() => '');
+        console.warn('Non-JSON response:', { status: response.status, text });
+      }
       console.log('API Response:', { status: response.status, result });
 
       if (response.ok) {
