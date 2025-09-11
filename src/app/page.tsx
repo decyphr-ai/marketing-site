@@ -256,12 +256,15 @@ function VideoPlayerTarget() {
   const [videoKey, setVideoKey] = useState(0);
   const [playerPosition, setPlayerPosition] = useState('center'); // 'center' or 'left'
 
+  // Black placeholder video (1x1 pixel black MP4 data URI)
+  const blackVideoDataUri = "data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAF5tZGF0AAAA";
+  
   const videos = [
-    { src: '/videos/spanish_2speaker_podcast.mov', lang: 'Spanish', color: 'bg-blue-500' },
-    { src: '/videos/mandarin_2speaker_podcast.mov', lang: '中文', color: 'bg-red-500' },
-    { src: '/videos/hindi_2speaker_podcast_2.mov', lang: 'हिंदी', color: 'bg-orange-500' },
-    { src: '/videos/spanish_2speaker_outdoor.mov', lang: 'Español', color: 'bg-green-500' },
-    { src: '/videos/mandarin_2speaker_podcast_2.mov', lang: '普通话', color: 'bg-purple-500' }
+    { src: blackVideoDataUri, lang: 'Spanish', color: 'bg-blue-500' },
+    { src: blackVideoDataUri, lang: '中文', color: 'bg-red-500' },
+    { src: blackVideoDataUri, lang: 'हिंदी', color: 'bg-orange-500' },
+    { src: blackVideoDataUri, lang: 'Español', color: 'bg-green-500' },
+    { src: blackVideoDataUri, lang: '普通话', color: 'bg-purple-500' }
   ];
 
   useEffect(() => {
@@ -807,9 +810,12 @@ function AnimatedStats({ side }: { side: 'left' | 'right' }) {
 function GlobeWithVideos() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   
+  // Black placeholder video (1x1 pixel black MP4 data URI)
+  const blackVideoDataUri = "data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAF5tZGF0AAAA";
+  
   const videos = [
-    '/videos/14351118_3840_2160_60fps.mp4',
-    '/videos/4612176-uhd_4096_2160_25fps.mp4'
+    blackVideoDataUri,
+    blackVideoDataUri
   ];
 
   useEffect(() => {
