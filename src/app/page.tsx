@@ -1486,7 +1486,7 @@ export default function Home() {
                 
                 {/* Subheadline - Always visible */}
                 <p className="mt-4 text-lg leading-8 text-gray-600 sm:text-xl lg:text-2xl max-w-2xl">
-                  Decyphr is an AI video translation tool that turns your content into perfectly localized videos for any audience, anywhere.
+                  Decyphr is a content globalization platform that turns your content into perfectly localized videos for any audience, anywhere.
                 </p>
                 
                 {/* CTA section with button and input - Always visible */}
