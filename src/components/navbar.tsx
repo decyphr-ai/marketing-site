@@ -4,36 +4,38 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 
 interface NavbarProps {
   className?: string;
 }
 
 export function Navbar({ className }: NavbarProps) {
-  const pathname = usePathname();
-  const [isClient, setIsClient] = useState(false);
-  const isLandingPage = pathname === "/" || pathname === "/landing";
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   return (
     <nav
       className={cn(
-        "bg-transparent animate-in slide-in-from-top fixed top-0 left-0 right-0 z-50 duration-750",
+        "fixed top-0 left-0 right-0 z-50 duration-750",
         className,
       )}
-      style={{
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-        maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.2) 90%, rgba(0,0,0,0) 100%)',
-        WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.2) 90%, rgba(0,0,0,0) 100%)'
-      }}
     >
-      <div className="flex h-16 min-w-screen items-center px-16 pr-16 sm:h-18 sm:px-28 sm:pr-28 lg:px-36 lg:pr-36">
+      {/* Main navbar with glassmorphism effect */}
+      <div 
+        className="relative"
+        style={{
+          // Core glassmorphism: semi-transparent background + blur
+          background: 'rgba(255, 255, 255, 0.25)',
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          
+          // Subtle border for definition
+          borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
+          
+          // The fade-out mask effect
+          maskImage: 'linear-gradient(to bottom, black 70%, rgba(0,0,0,0.8) 85%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 70%, rgba(0,0,0,0.8) 85%, transparent 100%)',
+        }}
+      >
+      <div className="flex h-16 w-full items-center px-16 pr-16 sm:h-18 sm:px-28 sm:pr-28 lg:px-36 lg:pr-36">
         <div className="flex h-12 items-center gap-3 sm:h-14">
           <Link href="/" className="flex h-12 w-auto items-center gap-2 sm:h-14">
             {/* Logo Image */}
@@ -62,7 +64,7 @@ export function Navbar({ className }: NavbarProps) {
               <span 
                 className="text-lg font-bold whitespace-nowrap sm:text-xl ml-1"
                 style={{
-                  background: `linear-gradient(to bottom, #0891b2, #06b6d4)`,
+                  background: `linear-gradient(to bottom, #0d9488, #14b8a6)`,
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -77,69 +79,61 @@ export function Navbar({ className }: NavbarProps) {
 
         <div className="flex-1" />
 
-        <div className="hidden items-center gap-6 lg:flex">
-          {!isClient ? (
-            // Default server-side render (landing page style)
-            <>
-              <Link href="/info">
-                <Button variant="ghost" size="sm" className="text-sm">
-                  How It Works
-                </Button>
-              </Link>
-              <Link href="/auth/login">
-                <Button size="sm" className="text-sm text-white bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700">
-                  Get Started
-                </Button>
-              </Link>
-            </>
-          ) : isLandingPage ? (
-            <>
-              <Link href="/info">
-                <Button variant="ghost" size="sm" className="text-sm">
-                  How It Works
-                </Button>
-              </Link>
-              <Link href="/auth/login">
-                <Button size="sm" className="text-sm text-white bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700">
-                  Get Started
-                </Button>
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link href="/">
-                <Button variant="ghost" size="lg" className="text-base">
-                  Home
-                </Button>
-              </Link>
-              <Link href="/info">
-                <Button variant="ghost" size="lg" className="text-base">
-                  How It Works
-                </Button>
-              </Link>
-              <Link href="/auth/login">
-                <Button size="lg" className="text-base text-white bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700">
-                  Get Started
-                </Button>
-              </Link>
-            </>
-          )}
+        {/* Navigation Links - Desktop */}
+        <div className="hidden items-center gap-8 lg:flex">
+          {/* <nav className="flex items-center gap-8">
+            <Link 
+              href="/" 
+              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors duration-200"
+            >
+              Home
+            </Link>
+            <Link 
+              href="/pricing" 
+              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors duration-200"
+            >
+              Pricing
+            </Link>
+            <Link 
+              href="/contact" 
+              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors duration-200"
+            >
+              Contact
+            </Link>
+          </nav> */}
+          <Button className="h-7 px-4 text-sm text-white bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 ml-4">
+            Get Started
+          </Button>
         </div>
 
-        {/* Mobile buttons for landing page */}
-        {(!isClient || isLandingPage) && (
-          <div className="flex items-center gap-2 lg:hidden">
-            <Link href="/auth/login">
-              <Button size="sm" className="px-3 py-2 text-sm text-white bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700">
-                Get Started
-              </Button>
+        {/* Mobile Navigation */}
+        <div className="flex items-center gap-4 lg:hidden">
+          <nav className="flex items-center gap-4">
+            <Link 
+              href="/" 
+              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors duration-200"
+            >
+              Home
             </Link>
-          </div>
-        )}
+            <Link 
+              href="/pricing" 
+              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors duration-200"
+            >
+              Pricing
+            </Link>
+            <Link 
+              href="/contact" 
+              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors duration-200"
+            >
+              Contact
+            </Link>
+          </nav>
+          <Button className="h-7 px-3 text-sm text-white bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800">
+            Get Started
+          </Button>
+        </div>
       </div>
-
-      {/* Gradient accent line */}
-      <div className="via-primary/60 pointer-events-none absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent to-transparent" />
+      </div>
     </nav>
   );
 }
