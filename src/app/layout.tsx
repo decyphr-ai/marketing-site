@@ -14,10 +14,41 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Decyphr AI - Unlock the Power of AI-Driven Insights",
-  description: "Transform your data into actionable intelligence with Decyphr AI. Our cutting-edge platform makes complex analytics simple, fast, and accessible.",
+  title: "Decyphr",
+  description: "Localizing your content with AI",
+  icons: [
+    { rel: "icon", type: "image/x-icon", url: "/favicon/favicon.ico" },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "16x16",
+      url: "/favicon/favicon-16x16.png",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      url: "/favicon/favicon-32x32.png",
+    },
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      url: "/favicon/apple-touch-icon.png",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "192x192",
+      url: "/favicon/android-chrome-192x192.png",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "512x512",
+      url: "/favicon/android-chrome-512x512.png",
+    },
+  ],
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{

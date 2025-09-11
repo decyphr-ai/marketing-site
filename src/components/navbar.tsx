@@ -101,7 +101,7 @@ export function Navbar({ className }: NavbarProps) {
               Contact
             </Link>
           </nav> */}
-          <Button className="h-7 px-4 text-sm text-white bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 ml-4">
+          <Button className="h-7 p-4 text-md text-white bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 ml-4">
             Get Started
           </Button>
         </div>
