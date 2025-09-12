@@ -604,7 +604,7 @@ function VideoPlayerTarget() {
         </div>
         
         {/* Video Controls Bar - Overlaid on video */}
-        <div className="absolute bottom-16 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-30">
+        <div className="absolute bottom-12 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-30">
           {/* Progress bar at top */}
           <div className="px-4 pt-2 pb-1">
             <div className="h-0.5 bg-white/30 rounded-full transition-all duration-150">
@@ -618,7 +618,7 @@ function VideoPlayerTarget() {
           </div>
           
           {/* Controls row */}
-          <div className="flex items-center justify-between px-4 pb-2">
+          <div className="flex items-center justify-between px-4">
             {/* Left controls */}
             <div className="flex items-center gap-1">
               {/* Play/Pause button */}
@@ -636,12 +636,12 @@ function VideoPlayerTarget() {
               </button>
               
               {/* Next button */}
-              <button className="flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors">
+              {/* <button className="flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors">
                 <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6 4l12 8-12 8V4zm2 2.5v11L16 12 8 6.5z"/>
                   <path d="M18 4v16h2V4h-2z"/>
                 </svg>
-              </button>
+              </button> */}
               
               {/* Volume/Mute button */}
               <button 
@@ -665,50 +665,49 @@ function VideoPlayerTarget() {
             
             {/* Right controls */}
             <div className="flex items-center gap-0">
-              {/* Captions (CC) - smaller */}
-              <button className="flex items-center justify-center w-6 h-5 bg-gray-600/80 hover:bg-gray-500/80 rounded-sm transition-colors mr-1">
+              {/* <button className="flex items-center justify-center w-6 h-5 bg-gray-600/80 hover:bg-gray-500/80 rounded-sm transition-colors mr-1">
                 <span className="text-white text-[10px] font-bold">CC</span>
-              </button>
+              </button> */}
               
               {/* Settings gear with HD badge */}
-              <button className="relative flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors mr-1">
+              {/* <button className="relative flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors mr-1">
                 <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
                 </svg>
-                {/* HD badge */}
+
                 <div className="absolute -top-1 -right-1 bg-gray-600 text-white text-[8px] font-bold px-1 py-0.5 rounded-sm leading-none">
                   HD
                 </div>
-              </button>
+              </button> */}
               
               {/* Picture in picture */}
-              <button className="flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors mr-1">
+              {/* <button className="flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors mr-1">
                 <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 7h-8v6h8V7zm2-4H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/>
                 </svg>
-              </button>
+              </button> */}
               
               {/* Theater mode */}
-              <button className="flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors mr-1">
+              {/* <button className="flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors mr-1">
                 <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 6H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H5V8h14v8z"/>
                 </svg>
-              </button>
+              </button> */}
               
               {/* Fullscreen */}
-              <button className="flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors">
+              {/* <button className="flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors">
                 <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
                 </svg>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
 
         {/* Video Title */}
-        <div className="absolute bottom-9 left-4 z-20">
-          <h3 className="text-white text-base font-semibold mb-0.5">Localized with Decyphr</h3>
-        </div>
+        {/* <div className="absolute bottom-9 left-4 z-20">
+          <h3 className="text-white text-base font-semibold mb-1">Localized with Decyphr</h3>
+        </div> */}
 
         {/* Channel Info Bar */}
         <div className="absolute bottom-1 left-0 right-0 h-8 bg-black/95 backdrop-blur-sm flex items-center justify-between px-4 z-20">
@@ -722,13 +721,13 @@ function VideoPlayerTarget() {
             />
             <div>
               <div className="text-white font-medium text-xs">Decyphr AI</div>
-              <div className="text-gray-400 text-[10px]">1.2M subscribers</div>
+              {/* <div className="text-gray-400 text-[10px]">1.2M subscribers</div> */}
             </div>
-            <button className="ml-3 px-3 py-1 bg-teal-600 hover:bg-teal-700 text-white text-xs font-medium rounded-full transition-colors">
+            {/* <button className="ml-3 px-3 py-1 bg-teal-600 hover:bg-teal-700 text-white text-xs font-medium rounded-full transition-colors">
               Subscribe
-            </button>
+            </button> */}
           </div>
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <button className="flex items-center gap-1 px-2 py-1 bg-white/20 hover:bg-white/30 text-white text-xs rounded-full transition-colors">
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-.97A5.25 5.25 0 016.75 18.25v-7.5z" />
@@ -740,7 +739,7 @@ function VideoPlayerTarget() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.935-2.186 2.25 2.25 0 00-3.935 2.186z" />
               </svg>
             </button>
-          </div>
+          </div> */}
         </div>
 
       </div>
@@ -854,7 +853,7 @@ function AnimatedStats({ side }: { side: 'left' | 'right' }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
       ),
-      title: "+340% Views"
+      title: "+34% Views"
     },
     {
       icon: (
@@ -862,7 +861,7 @@ function AnimatedStats({ side }: { side: 'left' | 'right' }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3s-4.5 4.03-4.5 9 2.015 9 4.5 9z" />
         </svg>
       ),
-      title: "127 Countries"
+      title: "3x Sponsorships"
     },
     {
       icon: (
@@ -870,7 +869,7 @@ function AnimatedStats({ side }: { side: 'left' | 'right' }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
         </svg>
       ),
-      title: "+850% Engagement"
+      title: "+85% Ad Revenue"
     }
   ];
 
@@ -1930,12 +1929,12 @@ export default function Home() {
                         <div className="text-sm text-gray-600">Languages Supported</div>
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-gray-900 mb-1">10M+</div>
-                        <div className="text-sm text-gray-600">Minutes Translated</div>
+                        <div className="text-2xl font-bold text-gray-900 mb-1">50%+</div>
+                        <div className="text-sm text-gray-600">Revenue Growth</div>
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-gray-900 mb-1">99.9%</div>
-                        <div className="text-sm text-gray-600">Accuracy Rate</div>
+                        <div className="text-2xl font-bold text-gray-900 mb-1">$250B+</div>
+                        <div className="text-sm text-gray-600">Spent on Influencer Partnerships</div>
                       </div>
                     </div>
                   </div>
