@@ -4,17 +4,57 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 interface NavbarProps {
   className?: string;
 }
 
 export function Navbar({ className }: NavbarProps) {
+  const [isHidden, setIsHidden] = useState(false);
 
+  useEffect(() => {
+    let ticking = false;
+
+    const updateVisibility = () => {
+      const root = document.documentElement;
+      const totalScrollable = root.scrollHeight - window.innerHeight;
+      if (totalScrollable <= 0) {
+        setIsHidden(false);
+        ticking = false;
+        return;
+      }
+      const threshold = totalScrollable / 2;
+      const shouldHide = window.scrollY >= threshold;
+      setIsHidden(shouldHide);
+      ticking = false;
+    };
+
+    const onScroll: EventListener = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateVisibility);
+      }
+    };
+
+    const onResize: EventListener = () => {
+      updateVisibility();
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    updateVisibility();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 duration-750",
+        "fixed top-0 left-0 right-0 z-50 transition-transform transition-opacity duration-700 will-change-transform will-change-opacity",
+        isHidden ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100",
         className,
       )}
     >
