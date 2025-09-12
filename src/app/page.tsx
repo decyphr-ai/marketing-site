@@ -343,14 +343,14 @@ function VideoPlayerTarget() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Black placeholder video (1x1 pixel black MP4 data URI)
-  const blackVideoDataUri = "https://fxyqvekxgrilminh.public.blob.vercel-storage.com/videos/Yash%20landing%20page.mp4";
+  const YashVideoDataUri = "https://fxyqvekxgrilminh.public.blob.vercel-storage.com/videos/My%20Movie%2069.mp4";
   
   const videos = [
-    { src: blackVideoDataUri, lang: 'Spanish', color: 'bg-blue-500' },
-    { src: blackVideoDataUri, lang: '中文', color: 'bg-red-500' },
-    { src: blackVideoDataUri, lang: 'हिंदी', color: 'bg-orange-500' },
-    { src: blackVideoDataUri, lang: 'Español', color: 'bg-green-500' },
-    { src: blackVideoDataUri, lang: '普通话', color: 'bg-purple-500' }
+    { src: YashVideoDataUri, lang: 'Spanish', color: 'bg-blue-500' },
+    { src: YashVideoDataUri, lang: '中文', color: 'bg-red-500' },
+    { src: YashVideoDataUri, lang: 'हिंदी', color: 'bg-orange-500' },
+    { src: YashVideoDataUri, lang: 'Español', color: 'bg-green-500' },
+    { src: YashVideoDataUri, lang: '普通话', color: 'bg-purple-500' }
   ];
 
   // Video player control functions
