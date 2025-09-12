@@ -47,3 +47,6 @@ public/videos/
 *.avi
 *.webm
 *.mkv
+
+# waitlist data
+/data/

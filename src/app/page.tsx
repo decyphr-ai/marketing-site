@@ -2,14 +2,17 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // Social Media Icons Component
 function SocialMediaIcons() {
   return (
     <div className="flex items-center justify-center gap-8">
       {/* LinkedIn - Pure Black */}
-      <div 
+      <a 
+        href="https://www.linkedin.com/company/decyphrai"
+        target="_blank"
+        rel="noopener noreferrer"
         className="w-16 h-16 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
         style={{
           background: '#000000'
@@ -18,22 +21,28 @@ function SocialMediaIcons() {
         <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
         </svg>
-      </div>
+      </a>
       
       {/* Instagram - Dark Grey-Blue */}
-      <div 
+      <a 
+        href="https://www.instagram.com/decyphr.ai/"
+        target="_blank"
+        rel="noopener noreferrer"
         className="w-16 h-16 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
         style={{
           background: '#334155'
         }}
       >
         <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z"/>
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
         </svg>
-      </div>
+      </a>
       
       {/* X (Twitter) - Dark Teal */}
-      <div 
+      <a 
+        href="https://x.com/DecyphrAI"
+        target="_blank"
+        rel="noopener noreferrer"
         className="w-16 h-16 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
         style={{
           background: '#115e59'
@@ -42,19 +51,89 @@ function SocialMediaIcons() {
         <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
         </svg>
-      </div>
+      </a>
       
-      {/* YouTube - Bright Teal */}
-      <div 
+      {/* TikTok - Bright Teal */}
+      <a 
+        href="https://www.tiktok.com/@decyphrai"
+        target="_blank"
+        rel="noopener noreferrer"
         className="w-16 h-16 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
         style={{
           background: '#0f766e'
         }}
       >
         <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43V7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.43z"/>
         </svg>
-      </div>
+      </a>
+    </div>
+  );
+}
+
+// Footer Social Media Icons Component (smaller version)
+function FooterSocialIcons() {
+  return (
+    <div className="flex items-center justify-center gap-4">
+      {/* LinkedIn */}
+      <a 
+        href="https://www.linkedin.com/company/decyphrai"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg"
+        style={{
+          background: '#000000'
+        }}
+      >
+        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      </a>
+      
+      {/* Instagram */}
+      <a 
+        href="https://www.instagram.com/decyphr.ai/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg"
+        style={{
+          background: '#334155'
+        }}
+      >
+        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+        </svg>
+      </a>
+      
+      {/* X (Twitter) */}
+      <a 
+        href="https://x.com/DecyphrAI"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg"
+        style={{
+          background: '#115e59'
+        }}
+      >
+        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+      
+      {/* TikTok */}
+      <a 
+        href="https://www.tiktok.com/@decyphrai"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg"
+        style={{
+          background: '#0f766e'
+        }}
+      >
+        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43V7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.43z"/>
+        </svg>
+      </a>
     </div>
   );
 }
@@ -255,6 +334,13 @@ function VideoPlayerTarget() {
   const [glowOpacity, setGlowOpacity] = useState(0);
   const [videoKey, setVideoKey] = useState(0);
   const [playerPosition, setPlayerPosition] = useState('center'); // 'center' or 'left'
+  
+  // Video player state
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Black placeholder video (1x1 pixel black MP4 data URI)
   const blackVideoDataUri = "https://fxyqvekxgrilminh.public.blob.vercel-storage.com/videos/Yash%20landing%20page.mp4";
@@ -267,6 +353,49 @@ function VideoPlayerTarget() {
     { src: blackVideoDataUri, lang: '普通话', color: 'bg-purple-500' }
   ];
 
+  // Video player control functions
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (videoRef.current) {
+      setCurrentTime(videoRef.current.currentTime);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (videoRef.current) {
+      setDuration(videoRef.current.duration);
+      // Auto-play from start when video loads
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {
+        // Handle autoplay policy restrictions gracefully
+        console.log('Autoplay prevented by browser policy');
+      });
+    }
+  };
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+
   useEffect(() => {
     setWindowHeight(window.innerHeight);
     
@@ -277,6 +406,16 @@ function VideoPlayerTarget() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Auto-play when the player becomes visible
+  useEffect(() => {
+    if (shouldShowVideo && videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {
+        console.log('Autoplay prevented by browser policy');
+      });
+    }
+  }, [shouldShowVideo]);
 
   const shouldShowTarget = () => {
     if (windowHeight === 0) return false;
@@ -445,53 +584,34 @@ function VideoPlayerTarget() {
         className="absolute inset-0 transition-opacity duration-500 ease-out"
         style={{ opacity: videoOpacity }}
       >
-        {/* Top Navigation Bar */}
-        <div className="absolute top-0 left-0 right-0 h-12 bg-black/90 backdrop-blur-sm flex items-center justify-between px-4 z-20">
-          <div className="flex items-center gap-3">
-            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
-              {/* Dark video player background */}
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#374151"/>
-              {/* White play button */}
-              <path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FFFFFF"/>
-            </svg>
-            <span className="text-white font-medium text-sm">YouTube</span>
-          </div>
-          {/* <div className="flex items-center gap-2">
-            <button className="p-1.5 hover:bg-white/20 rounded-full transition-colors">
-              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div> */}
-        </div>
-
         {/* Video Content */}
-        <div className="absolute inset-0 pt-12 pb-16">
+        <div className="absolute inset-0 pb-16">
         <video
+          ref={videoRef}
           key={`${currentVideo.src}-${videoKey}`}
           className="w-full h-full object-cover"
           autoPlay
-          muted
+          muted={isMuted}
           playsInline
+          onTimeUpdate={handleTimeUpdate}
+          onLoadedMetadata={handleLoadedMetadata}
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
         >
           <source src={currentVideo.src} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        
-        {/* Language indicator */}
-          <div className="absolute top-4 right-4">
-            <div className={`${currentVideo.color} text-white px-2 py-1 rounded text-xs font-semibold shadow-lg`}>
-            {currentVideo.lang}
-            </div>
-          </div>
         </div>
         
         {/* Video Controls Bar - Overlaid on video */}
         <div className="absolute bottom-16 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-30">
           {/* Progress bar at top */}
           <div className="px-4 pt-2 pb-1">
-            <div className="h-0.5 bg-white/30 rounded-full cursor-pointer hover:h-1 transition-all duration-150">
-              <div className="w-1/4 h-full bg-teal-500 rounded-full relative">
+            <div className="h-0.5 bg-white/30 rounded-full transition-all duration-150">
+              <div 
+                className="h-full bg-teal-500 rounded-full relative"
+                style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
+              >
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-white rounded-full shadow-sm"></div>
               </div>
             </div>
@@ -501,10 +621,17 @@ function VideoPlayerTarget() {
           <div className="flex items-center justify-between px-4 pb-2">
             {/* Left controls */}
             <div className="flex items-center gap-1">
-              {/* Play button */}
-              <button className="flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors">
+              {/* Play/Pause button */}
+              <button 
+                onClick={togglePlayPause}
+                className="flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors"
+              >
                 <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"/>
+                  {isPlaying ? (
+                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                  ) : (
+                    <path d="M8 5v14l11-7z"/>
+                  )}
                 </svg>
               </button>
               
@@ -516,16 +643,23 @@ function VideoPlayerTarget() {
                 </svg>
               </button>
               
-              {/* Volume button */}
-              <button className="flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors">
+              {/* Volume/Mute button */}
+              <button 
+                onClick={toggleMute}
+                className="flex items-center justify-center w-8 h-6 hover:bg-white/10 rounded-sm transition-colors"
+              >
                 <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                  {isMuted ? (
+                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                  ) : (
+                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                  )}
                 </svg>
               </button>
               
               {/* Time display */}
               <div className="text-white text-xs font-medium ml-2">
-                0:01 / 5:48
+                {formatTime(currentTime)} / {formatTime(duration)}
               </div>
             </div>
             
@@ -810,8 +944,6 @@ function AnimatedStats({ side }: { side: 'left' | 'right' }) {
 function GlobeWithVideos() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   
-  // Black placeholder video (1x1 pixel black MP4 data URI)
-  const blackVideoDataUri = "data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAF5tZGF0AAAA";
   
   const videos = [
     "https://fxyqvekxgrilminh.public.blob.vercel-storage.com/videos/4612176-uhd_4096_2160_25fps%281%29.mp4",
@@ -1026,14 +1158,14 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [scrollIndicatorOpacity, setScrollIndicatorOpacity] = useState(1);
   const [heroEmail, setHeroEmail] = useState('');
-  const [heroEmailStatus, setHeroEmailStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [heroEmailStatus, setHeroEmailStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'duplicate'>('idle');
   
   // Hero animation states
   const [heroAnimationState, setHeroAnimationState] = useState<'text' | 'transition-to-social' | 'social' | 'transition-to-text'>('text');
   const [cornersVisible, setCornersVisible] = useState(true);
   const [contentVisible, setContentVisible] = useState(true);
   const [ctaEmail, setCtaEmail] = useState('');
-  const [ctaEmailStatus, setCtaEmailStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [ctaEmailStatus, setCtaEmailStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'duplicate'>('idle');
 
   useEffect(() => {
     // Trigger load animation on mount
@@ -1131,11 +1263,19 @@ export default function Home() {
 
       const contentType = response.headers.get('content-type') || '';
       const isJson = contentType.includes('application/json');
-      const result = isJson ? await response.json() : null;
-      if (!isJson) {
+      let result = null;
+      
+      if (isJson) {
+        try {
+          result = await response.json();
+        } catch (parseError) {
+          console.warn('Failed to parse JSON response:', parseError);
+        }
+      } else {
         const text = await response.text().catch(() => '');
         console.warn('Non-JSON response:', { status: response.status, text });
       }
+      
       console.log('API Response:', { status: response.status, result });
 
       if (response.ok) {
@@ -1144,9 +1284,17 @@ export default function Home() {
         // Reset status after 3 seconds
         setTimeout(() => setStatus('idle'), 3000);
       } else {
-        console.error('API Error:', result);
-        setStatus('error');
-        setTimeout(() => setStatus('idle'), 3000);
+        // Check if it's a duplicate email error
+        if (response.status === 409) {
+          setStatus('duplicate');
+          // Don't log duplicate as an error - it's expected behavior
+        } else {
+          // Only log actual errors, not duplicates
+          const errorMessage = result?.error || `HTTP ${response.status}`;
+          console.error('API Error:', errorMessage, result);
+          setStatus('error');
+        }
+        setTimeout(() => setStatus('idle'), 5000); // Show status longer
       }
     } catch (error) {
       console.error('Submission error:', error);
@@ -1508,6 +1656,20 @@ export default function Home() {
                         </svg>
                         Success!
                       </div>
+                    ) : heroEmailStatus === 'duplicate' ? (
+                      <div className="flex items-center gap-2">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                        </svg>
+                        Already Signed Up!
+                      </div>
+                    ) : heroEmailStatus === 'error' ? (
+                      <div className="flex items-center gap-2">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        Try Again
+                      </div>
                     ) : (
                       'Join the Future'
                     )}
@@ -1709,6 +1871,20 @@ export default function Home() {
                                   </svg>
                                   Success!
                                 </div>
+                              ) : ctaEmailStatus === 'duplicate' ? (
+                                <div className="flex items-center gap-2">
+                                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                                  </svg>
+                                  Already Signed Up!
+                                </div>
+                              ) : ctaEmailStatus === 'error' ? (
+                                <div className="flex items-center gap-2">
+                                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                                  </svg>
+                                  Try Again
+                                </div>
                               ) : (
                                 'Join Waitlist'
                               )}
@@ -1774,23 +1950,26 @@ export default function Home() {
 
       {/* Clean Minimalist Tech vs Creativity Section */}
       <section className="relative py-20 lg:py-60 bg-gradient-to-br from-teal-600 via-teal-700 to-emerald-800">
+        {/* Subtle animated gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/20 via-transparent to-emerald-600/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-bl from-cyan-600/10 via-transparent to-teal-800/15"></div>
         {/* Top fade gradient overlay */}
         <div className="absolute top-0 left-0 right-0 h-50 bg-gradient-to-b from-white via-white/60 to-transparent"></div>
         
-        <div className="max-w-6xl mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
+        <div className="relative z-10 max-w-6xl mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
           
           {/* Clean Typography Hook */}
           <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-3 mb-8">
+            <div className="inline-flex items-center gap-3 mt-8 mb-8">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-white/40"></div>
               <span className="text-sm uppercase tracking-wider text-teal-100 font-medium">The Perfect Balance</span>
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-white/40"></div>
             </div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
-              Let us handle the <span className="font-bold text-yellow-300">tech</span>
+              Let us handle the <span className="inline-block bg-white px-4 py-1 rounded-lg font-bold text-teal-600 shadow-lg mb-4">tech</span>
               <br />
-              You handle the <span className="font-bold text-pink-300">creativity</span>
+              You handle the <span className="inline-block bg-white px-4 py-1 rounded-lg font-bold text-teal-600 shadow-lg mt-4">creativity</span>
             </h2>
           </div>
           
@@ -1798,48 +1977,42 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16 lg:gap-20 xl:gap-24 mb-16 items-start justify-center">
             
             {/* Tech Column */}
-            <div className="space-y-6 w-full max-w-md mx-20">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                  <div className="w-3 h-3 rounded-full bg-yellow-300"></div>
+            <div className="space-y-8 w-full max-w-md mx-20">
+              <div className="flex items-center gap-3 mb-10">
+                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                  <div className="w-4 h-4 rounded-full bg-cyan-300"></div>
                 </div>
-                <h3 className="text-xl font-semibold text-white">We Handle</h3>
+                <h3 className="text-2xl font-semibold text-white">We Handle</h3>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {[
-                  { title: 'AI Translation Engine', desc: 'Advanced neural networks for natural translations' },
-                  { title: 'Voice Synthesis', desc: 'Preserve your unique voice across languages' },
-                  { title: 'Global Distribution', desc: 'Seamless delivery to worldwide platforms' },
-                  { title: 'Format Optimization', desc: 'Perfect quality across all devices and formats' }
+                  'AI Translation & Voice Synthesis',
+                  'Global Distribution & Optimization'
                 ].map((item, index) => (
-                  <div key={index} className="border-l-2 border-white/30 pl-6 py-2">
-                    <h4 className="font-medium text-white mb-1">{item.title}</h4>
-                    <p className="text-sm text-teal-100">{item.desc}</p>
+                  <div key={index} className="border-l-3 border-white/40 pl-8 py-3">
+                    <h4 className="text-lg font-medium text-white">{item}</h4>
                   </div>
                 ))}
               </div>
             </div>
             
             {/* Creativity Column */}
-            <div className="space-y-6 w-full max-w-md mx-20">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                  <div className="w-3 h-3 rounded-full bg-pink-300"></div>
+            <div className="space-y-8 w-full max-w-md mx-20">
+              <div className="flex items-center gap-3 mb-10">
+                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                  <div className="w-4 h-4 rounded-full bg-emerald-300"></div>
                 </div>
-                <h3 className="text-xl font-semibold text-white">You Focus On</h3>
+                <h3 className="text-2xl font-semibold text-white">You Focus On</h3>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {[
-                  { title: 'Storytelling', desc: 'Craft compelling narratives that resonate' },
-                  { title: 'Creative Vision', desc: 'Express your unique perspective and style' },
-                  { title: 'Content Strategy', desc: 'Plan content that engages your audience' },
-                  { title: 'Audience Connection', desc: 'Build authentic relationships with viewers' }
+                  'Storytelling & Creative Vision',
+                  'Content Strategy & Audience'
                 ].map((item, index) => (
-                  <div key={index} className="border-l-2 border-white/30 pl-6 py-2">
-                    <h4 className="font-medium text-white mb-1">{item.title}</h4>
-                    <p className="text-sm text-teal-100">{item.desc}</p>
+                  <div key={index} className="border-l-3 border-white/40 pl-8 py-3">
+                    <h4 className="text-lg font-medium text-white">{item}</h4>
                   </div>
                 ))}
               </div>
@@ -1848,46 +2021,163 @@ export default function Home() {
           </div>
           
           {/* Simple CTA */}
-          <div className="text-center">
-            <p className="text-lg text-teal-100 mb-8 max-w-xl mx-auto">
+          <div className="relative z-20 text-center">
+            <p className="text-lg text-teal-100 mt-25 mb-8 max-w-xl mx-auto">
               Stop worrying about technical barriers. Start creating content that reaches every corner of the world.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="px-8 py-3 bg-white text-teal-700 hover:bg-gray-50 font-medium shadow-lg">
-                Join the Waitlist
+            <form onSubmit={handleCtaSubmit} className="relative z-30 flex flex-col sm:flex-row gap-4 -mb-25 max-w-md mx-auto items-center">
+              <div className="flex-1 w-full">
+                <input
+                  type="email"
+                  value={ctaEmail}
+                  onChange={(e) => setCtaEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  required
+                  disabled={ctaEmailStatus === 'loading'}
+                  className="w-full h-10 px-4 py-2 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none disabled:opacity-50"
+                />
+              </div>
+              <Button 
+                type="submit"
+                disabled={ctaEmailStatus === 'loading'}
+                className="h-10 px-8 py-2 bg-white text-teal-700 hover:bg-gray-50 font-medium shadow-lg whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {ctaEmailStatus === 'loading' ? (
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 border-2 border-teal-700 border-t-transparent rounded-full animate-spin"></div>
+                    Joining...
+                  </div>
+                ) : ctaEmailStatus === 'error' ? (
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                    </svg>
+                    Try Again
+                  </div>
+                ) : (
+                  'Join Waitlist'
+                )}
               </Button>
-              <Button size="lg" variant="outline" className="px-6 py-3 border-2 border-white text-white hover:bg-white hover:text-teal-700 font-medium">
-                See Examples
-              </Button>
-            </div>
+            </form>
+            
+            {ctaEmailStatus === 'success' && (
+              <p className="mt-4 text-sm text-teal-100">
+                Thanks! We&apos;ll be in touch soon.
+              </p>
+            )}
+            
+            {ctaEmailStatus === 'duplicate' && (
+              <p className="mt-4 text-sm text-yellow-200">
+                Already signed up! You&apos;re all set.
+              </p>
+            )}
+            
+            {ctaEmailStatus === 'error' && (
+              <p className="mt-4 text-sm text-red-300">
+                Something went wrong. Please try again.
+              </p>
+            )}
           </div>
           
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="relative py-12 bg-white">
+      <footer className="relative py-16 bg-gray-50">
         <div className="relative w-full px-16 pr-16 sm:px-28 sm:pr-28 lg:px-36 lg:pr-36">
-          <div className="flex flex-col items-center justify-center space-y-4">
-            <div className="flex items-center gap-2">
-            <Image
-                src="/images/logo-1.png"
-                alt="Decyphr Logo"
-                width={32}
-                height={32}
-                className="h-8 w-8"
-              />
-              <span className="text-xl font-bold bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent">
-                Decyphr
-              </span>
-              <span className="text-xl font-bold bg-gradient-to-r from-teal-600 to-teal-700 bg-clip-text text-transparent">
-                AI
-              </span>
+          <div className="max-w-6xl mx-auto">
+            
+            {/* Main Footer Content */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+              
+              {/* Company Info */}
+              <div className="text-center md:text-left">
+                <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
+                  <Image
+                    src="/images/logo-1.png"
+                    alt="Decyphr Logo"
+                    width={32}
+                    height={32}
+                    className="h-8 w-8"
+                  />
+                  <span className="text-xl font-bold bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent">
+                    Decyphr
+                  </span>
+                  <span className="text-xl font-bold bg-gradient-to-r from-teal-600 to-teal-700 bg-clip-text text-transparent">
+                    AI
+                  </span>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Breaking down language barriers with AI-powered content localization. 
+                  Reach every corner of the world with your message.
+                </p>
+              </div>
+
+              {/* Quick Links */}
+              <div></div>
+              {/* <div className="text-center md:text-left">
+                <h3 className="font-semibold text-gray-900 mb-4">Quick Links</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <a href="#" className="text-gray-600 hover:text-teal-600 text-sm transition-colors">
+                      About Us
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-600 hover:text-teal-600 text-sm transition-colors">
+                      How It Works
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-600 hover:text-teal-600 text-sm transition-colors">
+                      Pricing
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-600 hover:text-teal-600 text-sm transition-colors">
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </div> */}
+
+              {/* Connect */}
+              <div className="text-center md:text-left">
+                <h3 className="font-semibold text-gray-900 mb-4">Connect With Us</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Follow us for updates and behind-the-scenes content
+                </p>
+                <FooterSocialIcons />
+              </div>
+
             </div>
-            <p className="text-center text-sm text-gray-500">
-              © 2024 Decyphr AI. All rights reserved.
-            </p>
+
+            {/* Bottom Border */}
+            <div className="border-t border-gray-200 pt-8">
+              <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                
+                {/* Copyright */}
+                <p className="text-sm text-gray-500">
+                  © 2024 Decyphr AI. All rights reserved.
+                </p>
+
+                {/* Legal Links */}
+                {/* <div className="flex space-x-6">
+                  <a href="#" className="text-sm text-gray-500 hover:text-teal-600 transition-colors">
+                    Privacy Policy
+                  </a>
+                  <a href="#" className="text-sm text-gray-500 hover:text-teal-600 transition-colors">
+                    Terms of Service
+                  </a>
+                  <a href="#" className="text-sm text-gray-500 hover:text-teal-600 transition-colors">
+                    Cookies
+                  </a>
+                </div> */}
+
+              </div>
+            </div>
+
           </div>
         </div>
       </footer>

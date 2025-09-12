@@ -1,5 +1,6 @@
 import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
+import Airtable from 'airtable';
 
 export async function POST(request: NextRequest) {
   try {
@@ -31,11 +32,58 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Store email in Airtable with duplicate checking
+    const airtableApiKey = process.env.AIRTABLE_KEY;
+    const airtableBaseId = process.env.AIRTABLE_BASE_ID;
+    
+    if (!airtableApiKey || !airtableBaseId) {
+      return NextResponse.json(
+        { error: 'Airtable configuration missing' },
+        { status: 500 }
+      );
+    }
+
+    // Configure Airtable
+    const base = new Airtable({ apiKey: airtableApiKey }).base(airtableBaseId);
+    const table = base('tblcUTc0NCkOFHqxz'); // Table 1 ID
+    
+    const normalizedEmail = email.toLowerCase().trim();
+    
+    try {
+      // Check if email already exists
+      const existingRecords = await table.select({
+        filterByFormula: `LOWER({Email}) = "${normalizedEmail.replace(/"/g, '\\"')}"`
+      }).firstPage();
+      
+      if (existingRecords.length > 0) {
+        return NextResponse.json(
+          { error: 'Email already registered for waitlist' },
+          { status: 409 } // Conflict status code
+        );
+      }
+      
+      // Add new email to Airtable
+      await table.create([
+        {
+          fields: {
+            [process.env.AIRTABLE_EMAIL_FIELD_ID || 'fldK9wZkzvFkHTXPa']: normalizedEmail
+          }
+        }
+      ]);
+      
+    } catch (error) {
+      console.error('Airtable error:', error);
+      return NextResponse.json(
+        { error: 'Failed to save to waitlist' },
+        { status: 500 }
+      );
+    }
+
     // Send thank you email
     const { data, error } = await resend.emails.send({
       from: 'info@decyphr.ai',
       to: [email],
-      subject: 'Welcome to the Decyphr AI Waitlist! 🚀',
+      subject: 'Welcome to Decyphr AI',
       html: `
         <!DOCTYPE html>
         <html>
@@ -49,43 +97,25 @@ export async function POST(request: NextRequest) {
               
               <!-- Header -->
               <div style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); padding: 40px 30px; text-align: center;">
-                <h1 style="color: white; font-size: 28px; margin: 0; font-weight: bold;">Welcome to Decyphr AI! 🌍</h1>
+                <h1 style="color: white; font-size: 28px; margin: 0; font-weight: bold;">Welcome to Decyphr AI!</h1>
                 <p style="color: rgba(255, 255, 255, 0.9); margin: 10px 0 0 0; font-size: 16px;">Thank you for joining our waitlist</p>
               </div>
               
               <!-- Content -->
               <div style="padding: 40px 30px;">
-                <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">
-                  Hi there! 👋
+                <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 24px 0;">
+                  Thank you for joining us on our mission to unlock the world for content creators.
                 </p>
                 
-                <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">
-                  Thank you for joining our waitlist! We're thrilled to have you on board as we prepare to launch Decyphr AI – the future of video translation technology.
+                <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 24px 0;">
+                  We are building something truly revolutionary - breaking down language barriers so creators like you can reach every corner of the globe with their content. This means more outreach, more views, and ultimately more revenue for you as a creator. We are so happy to have you join us on this journey from the beginning.
                 </p>
                 
-                <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">
-                  Here's what you can expect:
+                <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 32px 0;">
+                  As one of our early supporters, we will keep you updated on our launch timeline and share exclusive behind-the-scenes details as we get closer to transforming the content creation landscape.
                 </p>
                 
-                <ul style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 25px 0; padding-left: 20px;">
-                  <li style="margin-bottom: 8px;">🎯 Early access to Decyphr AI when we launch</li>
-                  <li style="margin-bottom: 8px;">📧 Exclusive updates on our development progress</li>
-                  <li style="margin-bottom: 8px;">🎁 Special launch pricing and beta features</li>
-                  <li style="margin-bottom: 8px;">🌟 Priority support from our team</li>
-                </ul>
-                
-                <div style="background-color: #f0fdfa; border-left: 4px solid #14b8a6; padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0;">
-                  <p style="color: #0d9488; font-size: 16px; font-weight: 600; margin: 0 0 8px 0;">🚀 Coming Soon</p>
-                  <p style="color: #374151; font-size: 14px; line-height: 1.5; margin: 0;">
-                    We're working hard to bring you the most advanced AI video translation platform. Stay tuned for exciting updates!
-                  </p>
-                </div>
-                
-                <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 25px 0 0 0;">
-                  Thanks again for your interest in Decyphr AI. We can't wait to help you break down language barriers and reach audiences worldwide! 🌎
-                </p>
-                
-                <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 25px 0 0 0;">
+                <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0;">
                   Best regards,<br>
                   <span style="font-weight: 600; color: #0d9488;">The Decyphr AI Team</span>
                 </p>
@@ -93,6 +123,17 @@ export async function POST(request: NextRequest) {
               
               <!-- Footer -->
               <div style="background-color: #f8fafc; padding: 30px; text-align: center; border-top: 1px solid #e5e7eb;">
+                <p style="color: #6b7280; font-size: 14px; margin: 0 0 24px 0; font-weight: 500;">
+                  Stay connected with us
+                </p>
+                
+                <div style="margin-bottom: 24px;">
+                  <a href="https://www.linkedin.com/company/decyphrai" style="color: #0d9488; text-decoration: none; margin: 0 12px;">LinkedIn</a>
+                  <a href="https://www.instagram.com/decyphr.ai/" style="color: #0d9488; text-decoration: none; margin: 0 12px;">Instagram</a>
+                  <a href="https://x.com/DecyphrAI" style="color: #0d9488; text-decoration: none; margin: 0 12px;">X</a>
+                  <a href="https://www.tiktok.com/@decyphrai" style="color: #0d9488; text-decoration: none; margin: 0 12px;">TikTok</a>
+                </div>
+                
                 <div style="display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
                   <span style="font-size: 20px; font-weight: bold; color: #374151; margin-right: 8px;">Decyphr</span>
                   <span style="font-size: 20px; font-weight: bold; background: linear-gradient(135deg, #0d9488, #14b8a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">AI</span>
