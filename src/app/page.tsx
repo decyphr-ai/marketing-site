@@ -7,18 +7,18 @@ import { useState, useEffect, useRef } from "react";
 // Social Media Icons Component
 function SocialMediaIcons() {
   return (
-    <div className="flex items-center justify-center gap-8">
+    <div className="flex items-center justify-center gap-4 sm:gap-6 lg:gap-8">
       {/* LinkedIn - Pure Black */}
       <a 
         href="https://www.linkedin.com/company/decyphrai"
         target="_blank"
         rel="noopener noreferrer"
-        className="w-16 h-16 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+        className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
         style={{
           background: '#000000'
         }}
       >
-        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
         </svg>
       </a>
@@ -28,12 +28,12 @@ function SocialMediaIcons() {
         href="https://www.instagram.com/decyphr.ai/"
         target="_blank"
         rel="noopener noreferrer"
-        className="w-16 h-16 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+        className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
         style={{
           background: '#334155'
         }}
       >
-        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
         </svg>
       </a>
@@ -43,12 +43,12 @@ function SocialMediaIcons() {
         href="https://x.com/DecyphrAI"
         target="_blank"
         rel="noopener noreferrer"
-        className="w-16 h-16 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+        className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
         style={{
           background: '#115e59'
         }}
       >
-        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
         </svg>
       </a>
@@ -58,12 +58,12 @@ function SocialMediaIcons() {
         href="https://www.tiktok.com/@decyphrai"
         target="_blank"
         rel="noopener noreferrer"
-        className="w-16 h-16 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+        className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
         style={{
           background: '#0f766e'
         }}
       >
-        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43V7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.43z"/>
         </svg>
       </a>
@@ -141,10 +141,12 @@ function FooterSocialIcons() {
 function YouTubePlayer() {
   const [scrollY, setScrollY] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
     // Set initial window height
     setWindowHeight(window.innerHeight);
+    setIsSmallScreen(window.innerWidth < 640);
     
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -152,6 +154,7 @@ function YouTubePlayer() {
 
     const handleResize = () => {
       setWindowHeight(window.innerHeight);
+      setIsSmallScreen(window.innerWidth < 640);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -162,6 +165,8 @@ function YouTubePlayer() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  // Keep hooks order consistent; parent section handles layout for small screens
 
 
   const getPlayerState = () => {
@@ -325,6 +330,7 @@ function YouTubePlayer() {
 function VideoPlayerTarget() {
   const [scrollY, setScrollY] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [videoOpacity, setVideoOpacity] = useState(0);
@@ -398,14 +404,18 @@ function VideoPlayerTarget() {
 
   useEffect(() => {
     setWindowHeight(window.innerHeight);
+    setIsSmallScreen(window.innerWidth < 640);
     
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
+    const handleResize = () => setIsSmallScreen(window.innerWidth < 640);
+    window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  // Small screens are handled by a simplified player in the parent; keep hooks order consistent here
 
   // Auto-play when the player becomes visible
   useEffect(() => {
@@ -990,11 +1000,8 @@ function AnimatedMissionStatement() {
   
   // Mission statement phrases to flash - continuous line
   const missionPhrases = [
-    { words: ["We", "are", "on", "a"], highlight: false },
-    { words: ["mission"], highlight: true },
-    { words: ["to", "make"], highlight: false },
     { words: ["Language", "Barriers"], highlight: true },
-    { words: ["a", "thing", "of", "the", "past", "for"], highlight: false },
+    { words: ["are", "a", "thing", "of", "the", "past", "for"], highlight: false },
     { words: ["Content", "Creators"], highlight: true }
   ];
 
@@ -1158,6 +1165,7 @@ export default function Home() {
   const [scrollIndicatorOpacity, setScrollIndicatorOpacity] = useState(1);
   const [heroEmail, setHeroEmail] = useState('');
   const [heroEmailStatus, setHeroEmailStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'duplicate'>('idle');
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
   
   // Hero animation states
   const [heroAnimationState, setHeroAnimationState] = useState<'text' | 'transition-to-social' | 'social' | 'transition-to-text'>('text');
@@ -1165,6 +1173,13 @@ export default function Home() {
   const [contentVisible, setContentVisible] = useState(true);
   const [ctaEmail, setCtaEmail] = useState('');
   const [ctaEmailStatus, setCtaEmailStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'duplicate'>('idle');
+
+  useEffect(() => {
+    const updateScreen = () => setIsSmallScreen(window.innerWidth < 640);
+    updateScreen();
+    window.addEventListener('resize', updateScreen);
+    return () => window.removeEventListener('resize', updateScreen);
+  }, []);
 
   useEffect(() => {
     // Trigger load animation on mount
@@ -1449,10 +1464,10 @@ export default function Home() {
       {/* Ensure rest of page has white background */}
       <div className="relative z-10">
         {/* Hero Section - Full Viewport */}
-        <section className="relative h-screen flex items-center justify-center pb-40">
+        <section className="relative h-screen flex items-center justify-center pb-8 sm:pb-16 lg:pb-40">
         
         {/* Hero Content */}
-        <div className="relative w-full px-16 pr-16 sm:px-28 sm:pr-28 lg:px-36 lg:pr-36 z-20">
+        <div className="relative w-full px-4 sm:px-6 md:px-16 lg:px-36 z-20">
           <div className="mx-auto max-w-4xl flex justify-center">
             <div className="max-w-2xl">
               {/* Main headline */}
@@ -1466,22 +1481,22 @@ export default function Home() {
                     style={{
                       top: (isLoaded && cornersVisible) ? (
                         heroAnimationState === 'social' || heroAnimationState === 'transition-to-social' 
-                          ? 'calc(50% - 80px)' // Closer positioning for social icons
+                          ? (isSmallScreen ? 'calc(50% - 48px)' : 'calc(50% - 80px)')
                           : '20px' // Closer positioning for text
                       ) : '50%',
                       left: (isLoaded && cornersVisible) ? (
                         heroAnimationState === 'social' || heroAnimationState === 'transition-to-social'
-                          ? 'calc(50% - 200px)' // Further out positioning for social icons  
-                          : '-16px' // Full positioning for text
+                          ? (isSmallScreen ? 'calc(50% - 140px)' : 'calc(50% - 200px)')
+                          : '8px' // Keep inside container to provide padding from edge
                       ) : '50%',
                       transform: (isLoaded && cornersVisible) ? 'translate(0, 0)' : 'translate(-50%, -50%)',
                       opacity: (isLoaded && cornersVisible) ? 1 : 0
                     }}
                   >
-                    <div className="w-8 h-8">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10">
                       {/* Vertical line */}
                       <div 
-                        className="absolute top-0 left-0 w-1 h-8 transition-all duration-500 ease-out"
+                        className="absolute top-0 left-0 w-1 h-6 sm:h-8 lg:h-10 transition-all duration-500 ease-out"
                         style={{
                           background: 'linear-gradient(to bottom, #0d9488, #14b8a6)',
                           borderRadius: '0 0 2px 2px',
@@ -1491,7 +1506,7 @@ export default function Home() {
                       />
                       {/* Horizontal line */}
                       <div 
-                        className="absolute top-0 left-0 w-8 h-1 transition-all duration-500 ease-out"
+                        className="absolute top-0 left-0 w-6 sm:w-8 lg:w-10 h-1 transition-all duration-500 ease-out"
                         style={{
                           background: 'linear-gradient(to right, #0d9488, #14b8a6)',
                           borderRadius: '0 2px 2px 0',
@@ -1508,22 +1523,22 @@ export default function Home() {
                     style={{
                       bottom: (isLoaded && cornersVisible) ? (
                         heroAnimationState === 'social' || heroAnimationState === 'transition-to-social'
-                          ? 'calc(50% - 80px)' // Closer positioning for social icons
+                          ? (isSmallScreen ? 'calc(50% - 48px)' : 'calc(50% - 80px)')
                           : '20px' // Closer positioning for text
                       ) : '50%',
                       right: (isLoaded && cornersVisible) ? (
                         heroAnimationState === 'social' || heroAnimationState === 'transition-to-social'
-                          ? 'calc(50% - 200px)' // Further out positioning for social icons
-                          : '-16px' // Full positioning for text  
+                          ? (isSmallScreen ? 'calc(50% - 140px)' : 'calc(50% - 200px)')
+                          : '8px' // Keep inside container to provide padding from edge  
                       ) : '50%',
                       transform: (isLoaded && cornersVisible) ? 'translate(0, 0)' : 'translate(50%, 50%)',
                       opacity: (isLoaded && cornersVisible) ? 1 : 0
                     }}
                   >
-                    <div className="w-8 h-8">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10">
                       {/* Vertical line */}
                       <div 
-                        className="absolute bottom-0 right-0 w-1 h-8 transition-all duration-500 ease-out"
+                        className="absolute bottom-0 right-0 w-1 h-6 sm:h-8 lg:h-10 transition-all duration-500 ease-out"
                         style={{
                           background: 'linear-gradient(to top, #2E3038, #4a5568)',
                           borderRadius: '2px 2px 0 0',
@@ -1533,7 +1548,7 @@ export default function Home() {
                       />
                       {/* Horizontal line */}
                       <div 
-                        className="absolute bottom-0 right-0 w-8 h-1 transition-all duration-500 ease-out"
+                        className="absolute bottom-0 right-0 w-6 sm:w-8 lg:w-10 h-1 transition-all duration-500 ease-out"
                         style={{
                           background: 'linear-gradient(to left, #2E3038, #4a5568)',
                           borderRadius: '2px 0 0 2px',
@@ -1549,14 +1564,14 @@ export default function Home() {
                     <div className="relative w-full">
 
                       <h1 
-                        className="text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl transition-all duration-500 ease-out"
+                        className="text-4xl sm:text-6xl lg:text-8xl font-bold tracking-tight leading-tight break-words text-center transition-all duration-500 ease-out"
                         style={{
                           opacity: (isLoaded && contentVisible) ? 1 : 0,
                           transform: (isLoaded && contentVisible) ? 'translateY(0)' : 'translateY(20px)'
                         }}
                       >
                   <span 
-                    className="block transition-all duration-1000 ease-out flex items-center"
+                    className="block transition-all duration-1000 ease-out flex items-center justify-center text-center"
                     style={{
                       transform: (isLoaded && contentVisible) ? 'translateX(0)' : 'translateX(-30px)',
                       opacity: (isLoaded && contentVisible) ? 1 : 0,
@@ -1574,7 +1589,7 @@ export default function Home() {
                     >
                       {/* "O" replaced with globe icon */}
                       <svg 
-                        className="inline w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-1 align-baseline" 
+                        className="inline w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 mx-1 align-baseline" 
                         xmlns="http://www.w3.org/2000/svg" 
                         viewBox="0 0 420 420" 
                         fill="none"
@@ -1617,7 +1632,7 @@ export default function Home() {
                   {/* Social Media Icons View */}
                   {(heroAnimationState === 'social' || heroAnimationState === 'transition-to-social') && (
                     <div 
-                      className="absolute inset-0 flex items-center justify-center transition-all duration-500 ease-out"
+                      className="absolute inset-0 flex items-center justify-center px-4 transition-all duration-500 ease-out"
                       style={{
                         opacity: (isLoaded && contentVisible) ? 1 : 0,
                         transform: (isLoaded && contentVisible) ? 'translateY(0)' : 'translateY(20px)'
@@ -1632,16 +1647,16 @@ export default function Home() {
                 <div className="mt-5 w-24 h-px bg-teal-500"></div>
                 
                 {/* Subheadline - Always visible */}
-                <p className="mt-4 text-lg leading-8 text-gray-600 sm:text-xl lg:text-2xl max-w-2xl">
+                <p className="mt-4 text-lg leading-8 text-gray-600 sm:text-xl lg:text-2xl max-w-2xl text-center mx-auto">
                   Decyphr is a content globalization platform that turns your content into perfectly localized videos for any audience, anywhere.
                 </p>
                 
                 {/* CTA section with button and input - Always visible */}
-                <form onSubmit={handleHeroSubmit} className="mt-10 flex items-center gap-x-6">
+                <form onSubmit={handleHeroSubmit} className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                   <Button 
                     type="submit"
                     disabled={heroEmailStatus === 'loading'}
-                    className="w-48 px-8 py-0.5 text-lg bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white shadow-lg flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full sm:w-48 order-2 sm:order-1 px-8 py-0.5 text-lg bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white shadow-lg flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {heroEmailStatus === 'loading' ? (
                       <div className="flex items-center gap-2">
@@ -1679,7 +1694,7 @@ export default function Home() {
                     onChange={(e) => setHeroEmail(e.target.value)}
                     placeholder="Enter your email"
                     disabled={heroEmailStatus === 'loading'}
-                    className="flex-1 h-10 px-8 py-2 text-lg text-black placeholder-gray-400 rounded-lg focus:outline-none shadow-sm bg-white border-0 disabled:opacity-50"
+                    className="order-1 sm:order-2 w-full sm:flex-1 h-10 px-8 py-2 text-lg text-black placeholder-gray-400 rounded-lg focus:outline-none shadow-sm bg-white border-0 disabled:opacity-50"
                     required
                   />
                 </form>
@@ -1694,8 +1709,10 @@ export default function Home() {
           </div>
         </div>
         
-        {/* YouTube Player Component */}
-        <YouTubePlayer />
+        {/* YouTube Player Component - hidden on small screens */}
+        <div className="hidden sm:block">
+          <YouTubePlayer />
+        </div>
         
         {/* Modern Scroll Indicator */}
         <div 
@@ -1754,15 +1771,15 @@ export default function Home() {
                 Watch Your Content 
                 <span className="block text-teal-600">Speak Every Language</span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              {/* <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 See how Decyphr transforms a single video into multiple language versions, 
                 each with authentic voice translation that matches the original speaker&apos;s tone and style.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
 
-          <div className="relative w-full px-16 pr-16 sm:px-28 sm:pr-28 lg:px-36 lg:pr-36 z-30">
+          <div className="relative w-full px-4 sm:px-28 lg:px-36 z-30">
           
           <div className="mx-auto max-w-4xl text-center relative">
             {/* Invisible spacing to maintain layout - moved slightly higher */}
@@ -1770,12 +1787,27 @@ export default function Home() {
             
             {/* Target container for YouTube player - now behind the blur */}
             <div className="flex justify-center mb-12 relative" id="youtube-target">
-              <div className="w-[768px] h-[432px] relative">
+              <div className="w-full max-w-[768px] aspect-video relative">
                 {/* Always reserve space for the bigger player (w-96 * 2.0 = 768px, h-56 * 2.0 = 432px) */}
                 <div className="w-full h-full bg-transparent"></div>
                 {/* Player appears on top when ready */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <VideoPlayerTarget />
+                  {/* On small screens, render a simple video directly */}
+                  <div className="block sm:hidden w-full h-full">
+                    <video
+                      className="w-full h-full object-cover rounded-xl shadow-2xl"
+                      src="https://fxyqvekxgrilminh.public.blob.vercel-storage.com/videos/My%20Movie%2069.mp4"
+                      muted
+                      autoPlay
+                      loop
+                      playsInline
+                      controls
+                    />
+                  </div>
+                  {/* On larger screens, render the animated target */}
+                  <div className="hidden sm:block w-full h-full">
+                    <VideoPlayerTarget />
+                  </div>
                 </div>
                 {/* Animated Stats - Show when player moves left - positioned relative to player */}
                 <VideoPlayerTargetStats />
@@ -1784,7 +1816,7 @@ export default function Home() {
           </div>
             
           {/* 3 Minimalistic boxes below video player */}
-          <div className="flex justify-between gap-8 mt-40 mb-16">
+          <div className="hidden md:flex justify-between gap-8 mt-40 mb-16">
               <div className="flex-1 bg-gray-50/80 rounded-lg p-8 text-center">
                 <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
@@ -1965,7 +1997,7 @@ export default function Home() {
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-white/40"></div>
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight break-words">
               Let us handle the <span className="inline-block bg-white px-4 py-1 rounded-lg font-bold text-teal-600 shadow-lg mb-4">tech</span>
               <br />
               You handle the <span className="inline-block bg-white px-4 py-1 rounded-lg font-bold text-teal-600 shadow-lg mt-4">creativity</span>
@@ -1976,7 +2008,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16 lg:gap-20 xl:gap-24 mb-16 items-start justify-center">
             
             {/* Tech Column */}
-            <div className="space-y-8 w-full max-w-md mx-20">
+            <div className="space-y-8 w-full max-w-md mx-0 sm:mx-10 lg:mx-20 break-words">
               <div className="flex items-center gap-3 mb-10">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                   <div className="w-4 h-4 rounded-full bg-cyan-300"></div>
@@ -1990,14 +2022,14 @@ export default function Home() {
                   'Global Distribution & Optimization'
                 ].map((item, index) => (
                   <div key={index} className="border-l-3 border-white/40 pl-8 py-3">
-                    <h4 className="text-lg font-medium text-white">{item}</h4>
+                    <h4 className="text-lg font-medium text-white break-words">{item}</h4>
                   </div>
                 ))}
               </div>
             </div>
             
             {/* Creativity Column */}
-            <div className="space-y-8 w-full max-w-md mx-20">
+            <div className="space-y-8 w-full max-w-md mx-0 sm:mx-10 lg:mx-20 break-words">
               <div className="flex items-center gap-3 mb-10">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                   <div className="w-4 h-4 rounded-full bg-emerald-300"></div>
@@ -2011,7 +2043,7 @@ export default function Home() {
                   'Content Strategy & Audience'
                 ].map((item, index) => (
                   <div key={index} className="border-l-3 border-white/40 pl-8 py-3">
-                    <h4 className="text-lg font-medium text-white">{item}</h4>
+                    <h4 className="text-lg font-medium text-white break-words">{item}</h4>
                   </div>
                 ))}
               </div>

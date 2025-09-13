@@ -119,58 +119,19 @@ export function Navbar({ className }: NavbarProps) {
 
         <div className="flex-1" />
 
-        {/* Navigation Links - Desktop */}
-        <div className="hidden items-center gap-8 lg:flex">
-          {/* <nav className="flex items-center gap-8">
-            <Link 
-              href="/" 
-              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors duration-200"
-            >
-              Home
-            </Link>
-            <Link 
-              href="/pricing" 
-              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors duration-200"
-            >
-              Pricing
-            </Link>
-            <Link 
-              href="/contact" 
-              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors duration-200"
-            >
-              Contact
-            </Link>
-          </nav> */}
-          {/* <Button className="h-7 p-4 text-md text-white bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 ml-4">
+        {/* Navigation Links - Desktop (hidden as requested) */}
+        <div className="hidden items-center gap-8 lg:flex" />
+
+        {/* Mobile Navigation - hide links */}
+        <div className="flex items-center gap-4 lg:hidden">
+          <nav className="hidden">
+            <Link href="/">Home</Link>
+            <Link href="/pricing">Pricing</Link>
+            <Link href="/contact">Contact</Link>
+          </nav>
+          {/* <Button className="h-7 px-3 text-sm text-white bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800">
             Get Started
           </Button> */}
-        </div>
-
-        {/* Mobile Navigation */}
-        <div className="flex items-center gap-4 lg:hidden">
-          <nav className="flex items-center gap-4">
-            <Link 
-              href="/" 
-              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors duration-200"
-            >
-              Home
-            </Link>
-            <Link 
-              href="/pricing" 
-              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors duration-200"
-            >
-              Pricing
-            </Link>
-            <Link 
-              href="/contact" 
-              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors duration-200"
-            >
-              Contact
-            </Link>
-          </nav>
-          <Button className="h-7 px-3 text-sm text-white bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800">
-            Get Started
-          </Button>
         </div>
       </div>
       </div>
