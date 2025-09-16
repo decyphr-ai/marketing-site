@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -11,57 +10,52 @@ interface NavbarProps {
 }
 
 export function Navbar({ className }: NavbarProps) {
-  const [isHidden, setIsHidden] = useState(false);
+  const [isOverGreenBanner, setIsOverGreenBanner] = useState(false);
 
   useEffect(() => {
-    let ticking = false;
+    const updateNavbarStyle = () => {
+      // Find the green banner section (TechCreativitySection)
+      const greenBanner = document.querySelector('[data-section="tech-creativity"]');
+      if (!greenBanner) return;
 
-    const updateVisibility = () => {
-      const root = document.documentElement;
-      const totalScrollable = root.scrollHeight - window.innerHeight;
-      if (totalScrollable <= 0) {
-        setIsHidden(false);
-        ticking = false;
-        return;
-      }
-      const threshold = totalScrollable / 2;
-      const shouldHide = window.scrollY >= threshold;
-      setIsHidden(shouldHide);
-      ticking = false;
+      const rect = greenBanner.getBoundingClientRect();
+      const navbarHeight = 80; // Approximate navbar height
+      
+      // Check if navbar is significantly into the green banner
+      // Switch only when the green banner has moved up past most of the navbar
+      const isOverlapping = rect.top <= navbarHeight * 0.3 && rect.bottom >= navbarHeight * 0.7;
+      setIsOverGreenBanner(isOverlapping);
     };
 
-    const onScroll: EventListener = () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(updateVisibility);
-      }
-    };
-
-    const onResize: EventListener = () => {
-      updateVisibility();
+    const onScroll = () => {
+      requestAnimationFrame(updateNavbarStyle);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize);
-    updateVisibility();
+    window.addEventListener("resize", updateNavbarStyle);
+    updateNavbarStyle(); // Initial check
 
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
+      window.removeEventListener("resize", updateNavbarStyle);
     };
   }, []);
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-transform transition-opacity duration-700 will-change-transform will-change-opacity",
-        isHidden ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100",
+        "fixed top-0 left-0 right-0 z-50 translate-y-0 opacity-100",
         className,
       )}
     >
-      {/* Main navbar with glassmorphism effect */}
+      {/* Main navbar with dynamic background */}
       <div 
-        className="relative"
-        style={{
+        className={`relative transition-all duration-300 ${
+          isOverGreenBanner ? 'bg-white shadow-md' : ''
+        }`}
+        style={isOverGreenBanner ? {
+          // White background when over green banner
+          borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+        } : {
           // Core glassmorphism: semi-transparent background + blur
           background: 'rgba(255, 255, 255, 0.25)',
           backdropFilter: 'blur(20px) saturate(180%)',

@@ -92,8 +92,8 @@ export async function POST(request: NextRequest) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Welcome to Decyphr AI</title>
           </head>
-          <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background-color: #f8fafc;">
-            <div style="max-width: 600px; margin: 0 auto; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <body style="margin: 0; padding: 40px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background-color: #f8fafc;">
+            <div style="max-width: 600px; margin: 0 auto; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border-radius: 16px; overflow: hidden;">
               
               <!-- Header -->
               <div style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); padding: 40px 30px; text-align: center;">
@@ -104,11 +104,7 @@ export async function POST(request: NextRequest) {
               <!-- Content -->
               <div style="padding: 40px 30px;">
                 <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 24px 0;">
-                  Thank you for joining us on our mission to unlock the world for content creators.
-                </p>
-                
-                <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 24px 0;">
-                  We are building something truly revolutionary - breaking down language barriers so creators like you can reach every corner of the globe with their content. This means more outreach, more views, and ultimately more revenue for you as a creator. We are so happy to have you join us on this journey from the beginning.
+                  Thank you for joining our Waitlist, and more importantly, our mission to unlock the world for content creators! 
                 </p>
                 
                 <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 32px 0;">
@@ -122,7 +118,7 @@ export async function POST(request: NextRequest) {
               </div>
               
               <!-- Footer -->
-              <div style="background-color: #f8fafc; padding: 30px; text-align: center; border-top: 1px solid #e5e7eb;">
+              <div style="padding: 30px; text-align: center; border-top: 1px solid #e5e7eb;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0 0 24px 0; font-weight: 500;">
                   Stay connected with us
                 </p>
@@ -136,7 +132,7 @@ export async function POST(request: NextRequest) {
                 
                 <div style="display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
                   <span style="font-size: 20px; font-weight: bold; color: #374151; margin-right: 8px;">Decyphr</span>
-                  <span style="font-size: 20px; font-weight: bold; background: linear-gradient(135deg, #0d9488, #14b8a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">AI</span>
+                  <span style="font-size: 20px; font-weight: bold; color: #0d9488;">AI</span>
                 </div>
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
                   Breaking language barriers, one video at a time.
