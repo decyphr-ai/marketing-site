@@ -181,8 +181,8 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                         </svg>
                       </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">You're on the list!</h3>
-                  <p className="text-gray-600">Check your inbox for confirmation. We'll be in touch soon.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">You&apos;re on the list!</h3>
+                  <p className="text-gray-600">Check your inbox for confirmation. We&apos;ll be in touch soon.</p>
                       </div>
                     ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
@@ -273,21 +273,21 @@ export default function Home() {
 
         {/* Use Cases Section */}
         <section className="py-24 px-6 bg-gradient-to-b from-transparent via-white/50 to-white">
-          <div className="max-w-7xl mx-auto">
+                <div className="max-w-7xl mx-auto">
                   
             {/* Section Header */}
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-2 bg-teal-50 border border-teal-100 rounded-full px-4 py-1.5 mb-6">
                 <div className="w-2 h-2 bg-teal-500 rounded-full animate-pulse" />
                 <span className="text-sm font-medium text-teal-700">Built for Scale</span>
-              </div>
+                        </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
                 One platform. Every industry.
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Reach 5+ billion people. Turn your content into 29+ languages. All with one upload.
               </p>
-            </div>
+                                </div>
 
             {/* Use Case Cards - 2x2 Grid */}
             <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-16">
@@ -300,10 +300,10 @@ export default function Home() {
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
                       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
-                      </svg>
-                    </div>
+                                  </svg>
+                                </div>
                     <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">EdTech</span>
-                  </div>
+                                </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Education & E-Learning</h3>
                   <p className="text-gray-600 text-sm mb-5 leading-relaxed">
                     Transform courses into multi-language experiences. Reach international students while preserving instructor authenticity. No voice actors needed.
@@ -311,15 +311,15 @@ export default function Home() {
                   <div className="mb-5 py-4 border-y border-gray-100">
                     <div className="text-sm text-gray-700 font-medium mb-2">Perfect for:</div>
                     <div className="text-xs text-gray-600 leading-relaxed">Online course creators, universities, and corporate training teams expanding to new markets without multiplying production costs.</div>
-                  </div>
+                        </div>
                   <div className="flex flex-wrap gap-2">
                     <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">Course Creators</span>
                     <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">Universities</span>
                     <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">Corporate L&D</span>
-                  </div>
-                </div>
-              </div>
-                    
+                      </div>
+                    </div>
+                        </div>
+                        
               {/* Entertainment */}
               <div className="group relative bg-white rounded-xl overflow-hidden" style={{ border: '0.5px solid #e5e7eb' }}>
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-red-50 to-orange-50 rounded-full blur-3xl opacity-40 -translate-y-1/2 translate-x-1/2 group-hover:opacity-60 transition-opacity" />
@@ -329,9 +329,9 @@ export default function Home() {
                       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
                       </svg>
-                    </div>
+                      </div>
                     <span className="text-xs font-semibold text-red-600 bg-red-50 px-3 py-1 rounded-full">Creators</span>
-                  </div>
+                    </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Media & Entertainment</h3>
                   <p className="text-gray-600 text-sm mb-5 leading-relaxed">
                     The MrBeast playbook: one upload, 29 languages, billions of new viewers. Keep your authentic voice across every market.
@@ -344,9 +344,9 @@ export default function Home() {
                     <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">YouTube</span>
                     <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">Podcasts</span>
                     <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">Streaming</span>
-                  </div>
-                </div>
-              </div>
+                      </div>
+                      </div>
+                      </div>
                   
               {/* Marketing */}
               <div className="group relative bg-white rounded-xl overflow-hidden" style={{ border: '0.5px solid #e5e7eb' }}>
@@ -367,15 +367,15 @@ export default function Home() {
                   <div className="mb-5 py-4 border-y border-gray-100">
                     <div className="text-sm text-gray-700 font-medium mb-2">Perfect for:</div>
                     <div className="text-xs text-gray-600 leading-relaxed">Ad agencies, D2C brands, and e-commerce companies that need to scale video content across markets without hiring separate production teams for each region.</div>
-                  </div>
+                </div>
                   <div className="flex flex-wrap gap-2">
                     <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">Agencies</span>
                     <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">D2C Brands</span>
                     <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">E-commerce</span>
-                  </div>
-                </div>
               </div>
-                  
+          </div>
+            </div>
+            
               {/* Enterprise */}
               <div className="group relative bg-white rounded-xl overflow-hidden" style={{ border: '0.5px solid #e5e7eb' }}>
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-full blur-3xl opacity-40 -translate-y-1/2 translate-x-1/2 group-hover:opacity-60 transition-opacity" />
@@ -385,9 +385,9 @@ export default function Home() {
                       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
                       </svg>
-                    </div>
+          </div>
                     <span className="text-xs font-semibold text-teal-600 bg-teal-50 px-3 py-1 rounded-full">Enterprise</span>
-                  </div>
+                </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Corporate & Enterprise</h3>
                   <p className="text-gray-600 text-sm mb-5 leading-relaxed">
                     Scale executive communications and training globally. Enterprise-ready security. Deploy to 50+ countries from a single upload.
@@ -395,7 +395,7 @@ export default function Home() {
                   <div className="mb-5 py-4 border-y border-gray-100">
                     <div className="text-sm text-gray-700 font-medium mb-2">Perfect for:</div>
                     <div className="text-xs text-gray-600 leading-relaxed">Global organizations needing to deliver consistent training, onboarding, and internal communications across distributed teams in multiple languages.</div>
-                  </div>
+              </div>
                   <div className="flex flex-wrap gap-2">
                     <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">HR & L&D</span>
                     <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-md">Internal Comms</span>
@@ -404,7 +404,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-              
+            
             {/* Stats Bar */}
             <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-xl p-8 lg:p-10" style={{ border: '0.5px solid #374151' }}>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -415,11 +415,11 @@ export default function Home() {
                 <div className="text-center lg:border-r lg:border-gray-700">
                   <div className="text-3xl lg:text-4xl font-bold text-white mb-1">5B+</div>
                   <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">Potential Reach</div>
-                </div>
+              </div>
                 <div className="text-center lg:border-r lg:border-gray-700">
                   <div className="text-3xl lg:text-4xl font-bold text-emerald-400 mb-1">1 Click</div>
                   <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">To Go Global</div>
-                </div>
+                  </div>
                 <div className="text-center">
                   <div className="text-3xl lg:text-4xl font-bold text-white mb-1">AI-Powered</div>
                   <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">Voice & Lip-Sync</div>
@@ -447,7 +447,7 @@ export default function Home() {
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
-                <span className="text-lg font-medium">You're already on the list!</span>
+                <span className="text-lg font-medium">You&apos;re already on the list!</span>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
