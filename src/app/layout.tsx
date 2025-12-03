@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Decyphr",
-  description: "Localizing your content with AI",
+  title: "Decyphr — Your Content, Every Language",
+  description: "AI-powered video dubbing and lip-sync. Reach global audiences with one click.",
   icons: [
     { rel: "icon", type: "image/x-icon", url: "/favicon/favicon.ico" },
     {
@@ -59,7 +58,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white overflow-x-hidden`}
       >
-        <Navbar />
         {children}
       </body>
     </html>

@@ -45,31 +45,33 @@ export async function POST(request: NextRequest) {
 
     // Configure Airtable
     const base = new Airtable({ apiKey: airtableApiKey }).base(airtableBaseId);
-    const table = base('tblcUTc0NCkOFHqxz'); // Table 1 ID
+    const tableId = process.env.AIRTABLE_TABLE_ID;
+    if (!tableId) {
+      return NextResponse.json(
+        { error: 'Airtable table ID not configured' },
+        { status: 500 }
+      );
+    }
+    const table = base(tableId);
     
     const normalizedEmail = email.toLowerCase().trim();
+    let isNewSignup = false;
     
     try {
-      // Check if email already exists
       const existingRecords = await table.select({
         filterByFormula: `LOWER({Email}) = "${normalizedEmail.replace(/"/g, '\\"')}"`
       }).firstPage();
       
-      if (existingRecords.length > 0) {
-        return NextResponse.json(
-          { error: 'Email already registered for waitlist' },
-          { status: 409 } // Conflict status code
-        );
-      }
-      
-      // Add new email to Airtable
+      if (existingRecords.length === 0) {
       await table.create([
         {
           fields: {
-            [process.env.AIRTABLE_EMAIL_FIELD_ID || 'fldK9wZkzvFkHTXPa']: normalizedEmail
+              'Email': normalizedEmail
+            }
           }
+        ]);
+        isNewSignup = true;
         }
-      ]);
       
     } catch (error) {
       console.error('Airtable error:', error);
@@ -81,61 +83,159 @@ export async function POST(request: NextRequest) {
 
     // Send thank you email
     const { data, error } = await resend.emails.send({
-      from: 'info@decyphr.ai',
+      from: process.env.RESEND_FROM_EMAIL || 'info@mail.decyphr.ai',
       to: [email],
-      subject: 'Welcome to Decyphr AI',
+      subject: "You're on the list — Decyphr Early Access",
       html: `
         <!DOCTYPE html>
         <html>
           <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Welcome to Decyphr AI</title>
+            <title>Welcome to Decyphr</title>
           </head>
-          <body style="margin: 0; padding: 40px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background-color: #f8fafc;">
-            <div style="max-width: 600px; margin: 0 auto; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border-radius: 16px; overflow: hidden;">
+          <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #0a0a0a; color: #fafafa;">
+            <div style="max-width: 600px; margin: 0 auto;">
               
-              <!-- Header -->
-              <div style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); padding: 40px 30px; text-align: center;">
-                <h1 style="color: white; font-size: 28px; margin: 0; font-weight: bold;">Welcome to Decyphr AI!</h1>
-                <p style="color: rgba(255, 255, 255, 0.9); margin: 10px 0 0 0; font-size: 16px;">Thank you for joining our waitlist</p>
+              <!-- Preheader -->
+              <div style="display: none; max-height: 0; overflow: hidden;">
+                Your early access spot is confirmed. Get ready to reach 5B+ new viewers.
               </div>
               
-              <!-- Content -->
-              <div style="padding: 40px 30px;">
-                <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 24px 0;">
-                  Thank you for joining our Waitlist, and more importantly, our mission to unlock the world for content creators! 
+              <!-- Header -->
+              <div style="padding: 48px 32px 40px; text-align: center; border-bottom: 1px solid #262626;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #14b8a6, #0d9488); padding: 12px 20px; border-radius: 8px; margin-bottom: 32px;">
+                  <span style="color: white; font-size: 20px; font-weight: 700; letter-spacing: -0.5px;">Decyphr</span>
+                </div>
+                <h1 style="color: #fafafa; font-size: 32px; font-weight: 700; margin: 0 0 16px 0; letter-spacing: -1px; line-height: 1.2;">
+                  You're in.
+                </h1>
+                <p style="color: #a1a1aa; font-size: 16px; margin: 0; line-height: 1.6;">
+                  Early access confirmed — you'll be among the first to experience Decyphr when we launch.
+                </p>
+              </div>
+              
+              <!-- Stats Banner -->
+              <div style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%); padding: 32px; text-align: center;">
+                <table style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td style="text-align: center; padding: 0 8px;">
+                      <p style="color: white; font-size: 28px; font-weight: 700; margin: 0 0 4px 0;">5B+</p>
+                      <p style="color: rgba(255,255,255,0.8); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin: 0;">Potential Reach</p>
+                    </td>
+                    <td style="text-align: center; padding: 0 8px; border-left: 1px solid rgba(255,255,255,0.2); border-right: 1px solid rgba(255,255,255,0.2);">
+                      <p style="color: white; font-size: 28px; font-weight: 700; margin: 0 0 4px 0;">29+</p>
+                      <p style="color: rgba(255,255,255,0.8); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin: 0;">Languages</p>
+                    </td>
+                    <td style="text-align: center; padding: 0 8px;">
+                      <p style="color: white; font-size: 28px; font-weight: 700; margin: 0 0 4px 0;">1 Click</p>
+                      <p style="color: rgba(255,255,255,0.8); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin: 0;">To Go Global</p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              
+              <!-- Main Content -->
+              <div style="padding: 40px 32px;">
+                
+                <p style="color: #d4d4d8; font-size: 15px; line-height: 1.8; margin: 0 0 28px 0;">
+                  Decyphr will transform your video content into any language with AI-powered dubbing and real-time lip-sync. Your voice. Your style. 29+ languages.
                 </p>
                 
-                <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 32px 0;">
-                  As one of our early supporters, we will keep you updated on our launch timeline and share exclusive behind-the-scenes details as we get closer to transforming the content creation landscape.
-                </p>
+                <!-- What We're Building -->
+                <div style="background: #171717; border: 1px solid #262626; border-radius: 12px; padding: 24px; margin: 0 0 28px 0;">
+                  <p style="color: #14b8a6; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin: 0 0 16px 0;">What We're Building</p>
+                  <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #262626;">
+                        <span style="color: #fafafa; font-size: 14px; font-weight: 600; display: block; margin-bottom: 4px;">Voice Cloning</span>
+                        <span style="color: #a1a1aa; font-size: 12px;">Keep your authentic voice across every language</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #262626;">
+                        <span style="color: #fafafa; font-size: 14px; font-weight: 600; display: block; margin-bottom: 4px;">Real-Time Lip Sync</span>
+                        <span style="color: #a1a1aa; font-size: 12px;">Perfect mouth movements for natural viewing</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #262626;">
+                        <span style="color: #fafafa; font-size: 14px; font-weight: 600; display: block; margin-bottom: 4px;">29+ Languages</span>
+                        <span style="color: #a1a1aa; font-size: 12px;">Reach 5+ billion people in their native language</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px 0;">
+                        <span style="color: #fafafa; font-size: 14px; font-weight: 600; display: block; margin-bottom: 4px;">One-Click Deploy</span>
+                        <span style="color: #a1a1aa; font-size: 12px;">Upload once, distribute globally in minutes</span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
                 
-                <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0;">
-                  Best regards,<br>
-                  <span style="font-weight: 600; color: #0d9488;">The Decyphr AI Team</span>
+                <!-- Use Cases -->
+                <p style="color: #14b8a6; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin: 0 0 16px 0;">Perfect For</p>
+                
+                <table style="width: 100%; border-collapse: collapse; margin: 0 0 28px 0;">
+                  <tr>
+                    <td style="padding: 16px; background: #171717; border: 1px solid #262626; border-radius: 10px; vertical-align: top; width: 48%;">
+                      <p style="color: #fafafa; font-size: 14px; font-weight: 600; margin: 0 0 6px 0;">🎬 Content Creators</p>
+                      <p style="color: #a1a1aa; font-size: 12px; line-height: 1.5; margin: 0;">MrBeast-style global expansion. One upload, 29 languages, billions of new viewers.</p>
+                    </td>
+                    <td style="width: 4%;"></td>
+                    <td style="padding: 16px; background: #171717; border: 1px solid #262626; border-radius: 10px; vertical-align: top; width: 48%;">
+                      <p style="color: #fafafa; font-size: 14px; font-weight: 600; margin: 0 0 6px 0;">🎓 Education & E-Learning</p>
+                      <p style="color: #a1a1aa; font-size: 12px; line-height: 1.5; margin: 0;">Reach students worldwide without hiring voice actors for every language.</p>
+                    </td>
+                  </tr>
+                  <tr><td colspan="3" style="height: 12px;"></td></tr>
+                  <tr>
+                    <td style="padding: 16px; background: #171717; border: 1px solid #262626; border-radius: 10px; vertical-align: top; width: 48%;">
+                      <p style="color: #fafafa; font-size: 14px; font-weight: 600; margin: 0 0 6px 0;">📈 Marketing & Agencies</p>
+                      <p style="color: #a1a1aa; font-size: 12px; line-height: 1.5; margin: 0;">Launch global campaigns in days. Localized video ads at a fraction of the cost.</p>
+                    </td>
+                    <td style="width: 4%;"></td>
+                    <td style="padding: 16px; background: #171717; border: 1px solid #262626; border-radius: 10px; vertical-align: top; width: 48%;">
+                      <p style="color: #fafafa; font-size: 14px; font-weight: 600; margin: 0 0 6px 0;">🏢 Enterprise & HR</p>
+                      <p style="color: #a1a1aa; font-size: 12px; line-height: 1.5; margin: 0;">Training, onboarding, and internal comms for distributed global teams.</p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Early Access Benefit -->
+                <div style="background: linear-gradient(135deg, #042f2e 0%, #134e4a 100%); border: 1px solid #14b8a6; border-radius: 12px; padding: 24px; margin: 0 0 28px 0;">
+                  <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                      <td style="vertical-align: middle;">
+                        <p style="color: #5eead4; font-size: 11px; font-weight: 600; margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 1px;">Early Access Perk</p>
+                        <p style="color: #fafafa; font-size: 18px; font-weight: 700; margin: 0; letter-spacing: -0.5px;">First month free</p>
+                        <p style="color: #99f6e4; font-size: 13px; margin: 8px 0 0 0;">No credit card required. Full access when we launch.</p>
+                      </td>
+                      <td style="text-align: right; vertical-align: middle; width: 80px;">
+                        <div style="background: #14b8a6; color: #042f2e; font-size: 24px; font-weight: 800; padding: 12px 16px; border-radius: 8px;">FREE</div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <!-- What's Next -->
+                <p style="color: #14b8a6; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin: 0 0 12px 0;">What Happens Next</p>
+                <p style="color: #d4d4d8; font-size: 14px; line-height: 1.8; margin: 0 0 8px 0;">
+                  We're in the final stages of development. When we're ready, you'll receive your exclusive early access credentials before anyone else.
+                </p>
+                <p style="color: #71717a; font-size: 13px; line-height: 1.6; margin: 0;">
+                  In the meantime, keep creating. We'll handle the translation.
                 </p>
               </div>
               
               <!-- Footer -->
-              <div style="padding: 30px; text-align: center; border-top: 1px solid #e5e7eb;">
-                <p style="color: #6b7280; font-size: 14px; margin: 0 0 24px 0; font-weight: 500;">
-                  Stay connected with us
+              <div style="border-top: 1px solid #262626; padding: 32px; text-align: center;">
+                <p style="font-size: 16px; font-weight: 700; color: #14b8a6; margin: 0 0 4px 0;">Decyphr</p>
+                <p style="color: #71717a; font-size: 12px; margin: 0 0 16px 0;">
+                  Your content. Every language.
                 </p>
-                
-                <div style="margin-bottom: 24px;">
-                  <a href="https://www.linkedin.com/company/decyphrai" style="color: #0d9488; text-decoration: none; margin: 0 12px;">LinkedIn</a>
-                  <a href="https://www.instagram.com/decyphr.ai/" style="color: #0d9488; text-decoration: none; margin: 0 12px;">Instagram</a>
-                  <a href="https://x.com/DecyphrAI" style="color: #0d9488; text-decoration: none; margin: 0 12px;">X</a>
-                  <a href="https://www.tiktok.com/@decyphrai" style="color: #0d9488; text-decoration: none; margin: 0 12px;">TikTok</a>
-                </div>
-                
-                <div style="display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-                  <span style="font-size: 20px; font-weight: bold; color: #374151; margin-right: 8px;">Decyphr</span>
-                  <span style="font-size: 20px; font-weight: bold; color: #0d9488;">AI</span>
-                </div>
-                <p style="color: #6b7280; font-size: 14px; margin: 0;">
-                  Breaking language barriers, one video at a time.
+                <p style="color: #52525b; font-size: 11px; margin: 0;">
+                  © ${new Date().getFullYear()} Decyphr. All rights reserved.
                 </p>
               </div>
               
@@ -154,7 +254,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { message: 'Successfully joined waitlist!', id: data?.id },
+      { message: 'Successfully joined waitlist!', id: data?.id, isNew: isNewSignup },
       { status: 200 }
     );
 
