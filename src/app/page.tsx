@@ -185,20 +185,20 @@ export default function Home() {
                   <p className="text-gray-600">Check your inbox for confirmation. We&apos;ll be in touch soon.</p>
                       </div>
                     ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto w-full">
                   <input 
                     type="email" 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
                     disabled={emailStatus === 'loading'}
-                    className="flex-1 h-14 px-6 text-lg text-gray-900 placeholder-gray-400 rounded-xl border-2 border-gray-200 focus:border-teal-500 focus:outline-none bg-white/90 backdrop-blur-sm shadow-lg disabled:opacity-50 transition-colors"
+                    className="flex-1 w-full sm:w-auto min-w-0 h-14 px-6 text-base sm:text-lg text-gray-900 placeholder-gray-400 rounded-xl border-2 border-gray-200 focus:border-teal-500 focus:outline-none bg-white/90 backdrop-blur-sm shadow-lg disabled:opacity-50 transition-colors"
                     required
                   />
                             <Button 
                               type="submit"
                     disabled={emailStatus === 'loading'}
-                    className="h-14 px-8 text-lg font-semibold bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 text-white rounded-xl shadow-lg shadow-teal-500/25 disabled:opacity-50 transition-all"
+                    className="h-14 w-full sm:w-auto px-8 text-base sm:text-lg font-semibold bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 text-white rounded-xl shadow-lg shadow-teal-500/25 disabled:opacity-50 transition-all whitespace-nowrap"
                             >
                     {emailStatus === 'loading' ? (
                                 <div className="flex items-center gap-2">
@@ -450,20 +450,20 @@ export default function Home() {
                 <span className="text-lg font-medium">You&apos;re already on the list!</span>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto w-full">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   disabled={emailStatus === 'loading'}
-                  className="flex-1 h-14 px-6 text-lg text-gray-900 placeholder-gray-400 rounded-xl border-0 focus:ring-2 focus:ring-white/50 focus:outline-none bg-white shadow-lg disabled:opacity-50"
+                  className="flex-1 w-full sm:w-auto min-w-0 h-14 px-6 text-base sm:text-lg text-gray-900 placeholder-gray-400 rounded-xl border-0 focus:ring-2 focus:ring-white/50 focus:outline-none bg-white shadow-lg disabled:opacity-50"
                   required
                 />
               <Button 
                 type="submit"
                   disabled={emailStatus === 'loading'}
-                  className="h-14 px-8 text-lg font-semibold bg-white text-teal-700 hover:bg-gray-50 rounded-xl shadow-lg disabled:opacity-50 transition-all"
+                  className="h-14 w-full sm:w-auto px-8 text-base sm:text-lg font-semibold bg-white text-teal-700 hover:bg-gray-50 rounded-xl shadow-lg disabled:opacity-50 transition-all whitespace-nowrap"
                 >
                   {emailStatus === 'loading' ? 'Joining...' : 'Join Waitlist'}
               </Button>

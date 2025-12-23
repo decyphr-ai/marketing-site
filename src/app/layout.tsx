@@ -15,6 +15,27 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Decyphr — Your Content, Every Language",
   description: "AI-powered video dubbing and lip-sync. Reach global audiences with one click.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    title: "Decyphr — Your Content, Every Language",
+    description: "AI-powered video dubbing and lip-sync. Reach global audiences with one click.",
+    siteName: "Decyphr",
+    images: [
+      {
+        url: "/decyphr-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Decyphr - AI-powered video dubbing and lip-sync",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Decyphr — Your Content, Every Language",
+    description: "AI-powered video dubbing and lip-sync. Reach global audiences with one click.",
+    images: ["/decyphr-logo.png"],
+  },
   icons: [
     { rel: "icon", type: "image/x-icon", url: "/favicon/favicon.ico" },
     {
